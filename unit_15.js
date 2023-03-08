@@ -72,9 +72,8 @@ let a6 = [
   3, 4, 1, 1, 4, 2, 2, 4, 5, 24, 5, 3, 22, 56,
 ];
 
-let b6 = new Set(a6);
-
 const f6 = () => {
+  let b6 = new Set(a6);
   let out = document.querySelector(".out-6");
   out.innerHTML = b6.size;
 };
@@ -107,12 +106,10 @@ let s8 = new Set([
 let ar8 = [];
 
 const f8 = () => {
-  ar8 = Array.from(s8);
-  for (let i = 0; i < ar8.length; i++) {
-    if (ar8[i] > 5) {
-      console.log(ar8[i]);
-    }
+  for (let item of s8) {
+    if (item > 5) ar8.push(item);
   }
+  console.log(ar8);
 };
 
 document.querySelector(".b-8").onclick = f8;
@@ -138,9 +135,11 @@ document.querySelector(".b-9").onclick = () => {
 // При нажатии b-10 выполняете функцию f10. Функция должна принимать набор set в качестве параметра и выводить его в указанный элемент. Элемент указывается как второй параметр функции f10. Вывод значений - через пробел.
 
 const f10 = (out_set, elem) => {
+  let out = "";
   for (let item of out_set) {
-    document.querySelector(elem).innerHTML += item + " ";
+    out += item + " ";
   }
+  document.querySelector(elem).innerHTML = out;
 };
 
 document.querySelector(".b-10").onclick = () => {
@@ -164,12 +163,12 @@ document.querySelector(".b-11").onclick = f11;
 // Task 12
 //   При нажатии b-12 выполняете функцию f12. Функция должна преобразовать строку str12 в массив, так, что каждая буква - отдельный элемент массива. Потом создать набор на основе массива и возвратить его.
 
-let str12 = 
- "The name conjures up visions of plum pudding and Christmas punch quaint coaching inns and cozy firesides but also of orphaned and starving children";
+let str12 =
+  "The name conjures up visions of plum pudding and Christmas punch quaint coaching inns and cozy firesides but also of orphaned and starving children";
 
 const f12 = () => {
-    let s12 = new Set(str12);
-    return s12;
+  let s12 = new Set(str12);
+  return s12;
 };
 
 document.querySelector(".b-12").onclick = () => {
@@ -185,17 +184,16 @@ let str13 =
   "The name conjures up visions of plum pudding and Christmas punch quaint coaching inns and cozy firesides but also of orphaned and starving children";
 
 const f13 = () => {
-    let res = {};
-    let s13 = new Set(str13);
-    for(let s of s13){
-       let count = 0;
-       for(let i = 0; i < str13.length; i++){
-        if(s === str13[i]) 
-            count ++; 
-       }
-       res[s] = count;
+  let res = {};
+  let s13 = new Set(str13);
+  for (let s of s13) {
+    let count = 0;
+    for (let i = 0; i < str13.length; i++) {
+      if (s === str13[i]) count++;
     }
-    return res;
+    res[s] = count;
+  }
+  return res;
 };
 
 document.querySelector(".b-13").onclick = () => {
